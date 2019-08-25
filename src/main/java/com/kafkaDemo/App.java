@@ -10,10 +10,11 @@ import com.kafkaDemo.IKafkaConstants;
 import com.kafkaDemo.ConsumerCreator;
 import com.kafkaDemo.ProducerCreator;
 
-public class App {
+public class App{
 
     public static void main(String[] args) {
-      runProducer();
+        IKafkaConstants.loadCfg();
+        runProducer();
       // runConsumer();
     }
 
