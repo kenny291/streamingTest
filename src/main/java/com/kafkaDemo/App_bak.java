@@ -10,7 +10,7 @@ import com.kafkaDemo.IKafkaConstants;
 import com.kafkaDemo.ConsumerCreator;
 import com.kafkaDemo.ProducerCreator;
 
-public class App{
+public class App_bak{
 
     public static void main(String[] args) {
         IKafkaConstants.loadCfg();
