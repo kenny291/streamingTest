@@ -67,7 +67,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
-public class App1 {
+public class App {
    public static void main(String[] args) throws Exception {
       if(args.length == 0){
          System.out.println("Enter topic name");
