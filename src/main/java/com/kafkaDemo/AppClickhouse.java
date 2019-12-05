@@ -1,23 +1,25 @@
-// package com.kafkaDemo;
+package com.kafkaDemo;
 
-// import java.util.Arrays;
-// import org.apache.kafka.clients.consumer.KafkaConsumer;
-// import org.apache.kafka.clients.consumer.ConsumerRecords;
-// import org.apache.kafka.clients.consumer.ConsumerRecord;
-// import ru.yandex.clickhouse.ClickHouseStatement;
+import ru.yandex.clickhouse.ClickHouseDataSource;
+import ru.yandex.clickhouse.ClickHouseConnectionImpl;
+import ru.yandex.clickhouse.BalancedClickhouseDataSource;
 
-// public class AppClickhouse {
-//    public static void main(String[] args) throws Exception {
-// ClickHouseStatement sth = connection.createStatement();
-// sth.write().send("INSERT INTO test.writer", new ClickHouseStreamCallback() {
-//     @Override
-//     public void writeTo(ClickHouseRowBinaryStream stream) throws IOException {
-//         for (int i = 0; i < 10; i++) {
-//             stream.writeInt32(i);
-//             stream.writeString("Name " + i);
-//         }
-//     }
-// },
-// ClickHouseFormat.RowBinary);
-//       }
-//    }
+
+import java.util.concurrent.TimeUnit;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class AppClickhouse {
+    public static void main(String[] args) throws Exception {
+        BalancedClickhouseDataSource ds = new BalancedClickhouseDataSource(
+            "jdbc:clickhouse://10.10.14.159:8123,10.10.14.151:8123");
+        ds.scheduleActualization(100, TimeUnit.MICROSECONDS);
+        ClickHouseConnectionImpl connection = (ClickHouseConnectionImpl) ds.getConnection();
+        System.out.println("ok");
+        PreparedStatement statement = connection.prepareStatement("SHOW DATABASES;");
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        System.out.println(resultSet.getString(1));
+
+    }
+}

@@ -52,6 +52,27 @@
         <scope>provided</scope>
     </dependency>
 
+    <dependency>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-clients_2.11</artifactId>
+        <version>1.9.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-connector-wikiedits_2.11</artifactId>
+        <version>1.9.1</version>
+    </dependency>
+
+    <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-api</artifactId>
+       <version>1.7.5</version>
+   </dependency>
+   <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-log4j12</artifactId>
+       <version>1.7.5</version>
+   </dependency>
   </dependencies>
 
   <build>
@@ -66,7 +87,7 @@
               </descriptorRefs>
               <archive>
                   <manifest>
-                      <mainClass>com.kafkaDemo.SocketWindowWordCount</mainClass>
+                      <mainClass>com.kafkaDemo.WikipediaAnalysis</mainClass>
                   </manifest>
               </archive>
           </configuration>
