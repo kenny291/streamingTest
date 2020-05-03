@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kafkaDemo</groupId>
-  <artifactId>KafkaTest</artifactId>
+  <artifactId>streamTest</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>KafkaTest</name>
+  <name>streamTest</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -80,14 +80,14 @@
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.5.1</version>
+          <version>3.2.0</version>
           <configuration>
               <descriptorRefs>
                   <descriptorRef>jar-with-dependencies</descriptorRef>
               </descriptorRefs>
               <archive>
                   <manifest>
-                      <mainClass>com.kafkaDemo.SocketWindowWordCount</mainClass>
+                      <mainClass>com.kafkaDemo.CrimeAnalytic</mainClass>
                   </manifest>
               </archive>
           </configuration>
