@@ -2,6 +2,8 @@ package com.kafkaDemo;
 
 // https://data-flair.training/blogs/apache-flink-use-case/
 // data: header: cdatetime,address,district,beat,grid,crimedescr,ucr_ncic_code,latitude,longitude
+// sample: 1/1/2006 0:00,3108 OCCIDENTAL DR,3,3C,1115,484 PC PETTY
+// THEFT/INSIDE,2404,38.47350069,-121.4901858
 
 // problem 1: group count crime type
 // import org.apache.flink.api.common.functions.GroupReduceFunction;
@@ -148,7 +150,7 @@ package com.kafkaDemo;
 //         @Override
 //         public void flatMap(String value, Collector<Tuple2<String, Integer>> out) {
 //             String[] tokens = value.split(",");
-//             if (tokens[2].contains("district")) {
+//             if (tokens[2].contains("district")) { // remove header
 //                 return;
 //             } else {
 //                 out.collect(new Tuple2<String, Integer>(tokens[2], 1));
